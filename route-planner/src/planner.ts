@@ -68,7 +68,7 @@ export async function planRoute(req: RouteRequest): Promise<RouteResult> {
     getPureTransit(originCoords, destCoords, req.origin.address, req.destination.address),
     getPureDriving(originCoords, destCoords, req.origin.address, req.destination.address),
     searchMetroStations(originCoords, maxTaxiDist, 8),
-    searchMetroStations(destCoords, maxTaxiDist, 8),
+    searchMetroStations(destCoords, 30000, 8),
   ]);
 
   const topA = stationsA.sort((a, b) => a.distance - b.distance).slice(0, 5);
